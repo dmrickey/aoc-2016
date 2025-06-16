@@ -7,6 +7,11 @@ class Triangle {
     /** @type {Array<number>} */
     sides;
 
+    /**
+     * @param {number} a 
+     * @param {number} b 
+     * @param {number} c 
+     */
     constructor(a, b, c) {
         this.sides = [a, b, c];
     }

@@ -1,7 +1,34 @@
 import { log } from '../../utils/log.mjs';
 import * as input from './input-day-1.mjs';
 
-const compass = /** @type {const} */ ('NESW');
+class Compass {
+    /** @type { 'N' | 'S' | 'E' | 'W'} */
+    currentFacing = 'N';
+    
+    /**
+     * @param {'L' | 'R'} t 
+     */
+    turn(t) {
+        switch (t) {
+            case 'L':
+                switch (this.currentFacing) {
+                    case 'N': this.currentFacing = 'W'; break;
+                    case 'S': this.currentFacing = 'E'; break;
+                    case 'E': this.currentFacing = 'N'; break;
+                    case 'W': this.currentFacing = 'S'; break;
+                }
+                break;
+            case 'R':
+                switch (this.currentFacing) {
+                    case 'N': this.currentFacing = 'E'; break;
+                    case 'S': this.currentFacing = 'W'; break;
+                    case 'E': this.currentFacing = 'S'; break;
+                    case 'W': this.currentFacing = 'N'; break;
+                }
+                break;
+        }
+    }
+}
 
 class Direction {
     /** @type { 'L' | 'R' } */
@@ -12,7 +39,7 @@ class Direction {
      * @param {string} x 
      */
     constructor(x) {
-        this.turn = x[0];
+        this.turn = /** @type {'L' | 'R'} */ (x[0]);
         this.blocks = +x.slice(1);
     }
 }
@@ -30,18 +57,13 @@ const handleInput = ({ directions, expected }) => {
         .map(x => x.trim())
         .map(x => new Direction(x));
 
-    let facing = 'N';
+    const compass = new Compass();
     const position = { x: 0, y: 0 };
 
     mapped.forEach(({ turn, blocks }) => {
-        const i = compass.indexOf(facing)
-        switch (turn) {
-            case 'L': facing = compass[(i - 1 + compass.length)%(compass.length)]; break;
-            case 'R': facing = compass[(i + 1 + compass.length)%(compass.length)]; break;
-            default: throw new Error('should never happen');
-        };
+        compass.turn(turn);
 
-        switch (facing) {
+        switch (compass.currentFacing) {
             case 'N': position.y += blocks; break;
             case 'E': position.x += blocks; break;
             case 'S': position.y -= blocks; break;

@@ -6,10 +6,12 @@ const compass = /** @type {const} */ ('NESW');
 class History {
     /** @type { Record<number, Set<number>>} */
     history = {};
+    /** @param {{ x: number, y: number }} _ */
     add({ x, y }) {
         this.history[x] ||= new Set();
         this.history[x].add(y);
     }
+    /** @param {{ x: number, y: number }} _ */
     has({ x, y }) {
         const _x = this.history[x];
         return !!_x?.has(y);
@@ -25,7 +27,7 @@ class Direction {
      * @param {string} x 
      */
     constructor(x) {
-        this.turn = x[0];
+        this.turn = /** @type { 'L' | 'R' } */ (x[0]);
         this.blocks = +x.slice(1);
     }
 }

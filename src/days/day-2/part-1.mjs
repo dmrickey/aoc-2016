@@ -18,9 +18,10 @@ class Keypad {
         return this.pad[this.position[1]]?.[this.position[0]];
     }
 
+    /** @param {string} str */
     move(str) {
         /** @type {Array<'U'|'L'|'R'|'D'>} */
-        const _moves = str.split('');
+        const _moves = /** @type {Array<'U'|'L'|'R'|'D'>} */ (str.split(''));
         _moves.forEach((m) => {
             const previous = [...this.position];
 
