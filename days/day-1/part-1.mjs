@@ -1,5 +1,5 @@
 import { log } from '../../utils/log.mjs';
-import * as input from './input.mjs';
+import * as input from './input-day-1.mjs';
 
 const compass = /** @type {const} */ ('NESW');
 
