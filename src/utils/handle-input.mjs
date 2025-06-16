@@ -25,7 +25,10 @@ export const handleInput = (dayFunction, input, day) => {
     log(`example: ${example}`);
 
     const color = example == result ? green : red;
-    const icon = example == result ? '\u2713' : '❌'; 
+    const icon =
+        example === '?'
+            ? ''
+            : example == result ? '\u2713' : '❌'; 
 
     log(color + `result: ${result}${icon}` + reset);
 }
