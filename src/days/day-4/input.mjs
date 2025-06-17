@@ -9,6 +9,12 @@ export const ex1 = createInput(`
     1514,
 );
 
+export const ex2 = createInput(
+    `qzmt-zixmtkozy-ivhz-343[zimth]`,
+    '',
+    'very encrypted name'
+)
+
 export const input = createInput(`
 hqcfqwydw-fbqijys-whqii-huiuqhsx-660[qhiwf]
 oxjmxdfkd-pzxsbkdbo-erkq-ixyloxqlov-913[xodkb]
@@ -964,4 +970,5 @@ dfcxsqhwzs-qobrm-zcuwghwqg-168[qwcgh]
 bqvvu-ydkykhwpa-klanwpekjo-966[kapvw]
 aoubshwq-pibbm-kcfygvcd-740[wnucy]
     `,
-245102);
+    245102,
+    324);
