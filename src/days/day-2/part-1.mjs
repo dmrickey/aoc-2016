@@ -1,3 +1,4 @@
+import { handleInput } from '../../utils/handle-input.mjs';
 import { log } from '../../utils/log.mjs';
 import * as input from './input.mjs';
 
@@ -44,23 +45,18 @@ class Keypad {
 }
 
 /**
- * @param {object} input 
- * @param {string} input.input
- * @param {number} [input.expected]
+ * @param {string} input
  */
-const handleInput = ({ input, expected }) => {
-    if (expected) log('expected: ' + expected);
-
+const doIt = (input) => {
     const keypad = new Keypad();
     const directions = input.trim().split(/\s+/);
 
     directions.forEach(x => keypad.move(x));
 
-    log('answer: ' + keypad.code);
+    return keypad.code;
 };
 
 
-handleInput(input.example);
+handleInput(doIt, input.example, 1);
 
-log('\nfinal answer:');
-handleInput(input.input);
+handleInput(doIt, input.input, 1);
