@@ -1,7 +1,8 @@
+import { handleInput } from '../../utils/handle-input.mjs';
 import { log } from '../../utils/log.mjs';
-import * as input from './input.mjs';
+import { input } from './input.mjs';
 
-log('Day 2 part 1');
+log('Day 3 part 1');
 
 class Triangle {
     /** @type {Array<number>} */
@@ -13,7 +14,7 @@ class Triangle {
         this.sides.sort();
     }
 
-    get canBeTriangle() {
+    get isLegit() {
         return ((this.sides[0] + this.sides[1]) > this.sides[2])
         && ((this.sides[1] + this.sides[2]) > this.sides[0])
         && ((this.sides[2] + this.sides[0]) > this.sides[1]);
@@ -21,24 +22,18 @@ class Triangle {
 }
 
 /**
- * @param {object} input 
- * @param {string} input.input
- * @param {number} [input.expected]
+ * @param {string} input
  */
-const handleInput = ({ input, expected }) => {
-    if (expected) log('expected: ' + expected);
-
+const doIt = (input) => {
     const triangles = input
         .trim().split('\n')
         .map((line) => new Triangle(line));
 
     const valid = triangles
-        .filter(t => t.canBeTriangle)
+        .filter(t => t.isLegit)
         .length;
 
-    log('answer: ' + valid);
+    return valid;
 };
 
-
-log('\nfinal answer:');
-handleInput(input.input);
+handleInput(doIt, input, 1);

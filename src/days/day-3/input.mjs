@@ -1,8 +1,7 @@
-export const input = {
-    expected: 983,
-    expected2: 1836,
-    input: `
-    4   21  894
+import { createInput } from '../../utils/create-input.mjs';
+
+export const input = createInput(
+    `4   21  894
   419  794  987
   424  797  125
   651  305  558
@@ -1909,6 +1908,6 @@ export const input = {
    50   94    8
   554  421  618
   338  274  638
-  346  188  656
-    `,
-};
+  346  188  656`,
+    983,
+    1836);
