@@ -11,7 +11,6 @@ class Triangle {
     /** @param {string} line */
     constructor(line) {
         this.sides = line.trim().split(/\s+/).map(x => +x);
-        this.sides.sort();
     }
 
     get isLegit() {
