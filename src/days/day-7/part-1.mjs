@@ -106,6 +106,8 @@ const doIt = (input) => {
 };
 
 log('Day 7 part 1');
+handleInput(doIt, input.ex1, 1);
+handleInput(doIt, input.input, 1);
 
 /**
  * @param {string} input 
@@ -115,10 +117,6 @@ const doIt2 = (input) => {
     return ips.sslCount;
 };
 
-handleInput(doIt, input.ex1, 1);
-handleInput(doIt, input.input, 1);
-
 log('Day 7 part 2');
-
 handleInput(doIt2, input.ex2, 2);
 handleInput(doIt2, input.input, 2);
