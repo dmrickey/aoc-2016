@@ -133,15 +133,3 @@ const doIt = (x, y) => (input) => {
 log('Day 8 part 1');
 handleInput(doIt(7, 3), input.ex1, 1);
 handleInput(doIt(50, 6), input.input, 1);
-
-// /**
-//  * @param {string} input
-//  */
-// const doIt2 = (input) => {
-//     const ips = new AllIps(input);
-//     return ips.sslCount;
-// };
-//
-// log('Day 8 part 2');
-// handleInput(doIt2, input.ex2, 2);
-// handleInput(doIt2, input.input, 2);
