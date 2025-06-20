@@ -7,7 +7,7 @@ class Screen {
     /** @constant */
     #on = '#';
     /** @constant */
-    #off = '.';
+    #off = ' ';
 
     /** @type {Array<Array<string>>} */
     #screen;
@@ -118,7 +118,6 @@ class Screen {
  */
 const doIt = (x, y) => (input) => {
     const screen = new Screen(x, y);
-    screen.dump();
 
     const instructions = input.split('\n');
     instructions.forEach((instruction) => {
