@@ -1,1 +1,1 @@
-import './src/days/day-7/part-1.mjs';
+import './src/days/day-8/part-1.mjs';
